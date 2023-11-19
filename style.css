@@ -1,0 +1,161 @@
+/* Overview Webpage */
+html {
+    background-color: bisque;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#Navigation_bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+}
+
+#Navigation_bar a:hover {
+    background-color: #313131;
+}
+
+#Navigation_bar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#Navigation_bar a:not(:last-child) {
+    margin-right: 15px;
+}
+
+.spacer {
+    height: 65px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.center {
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+.text {
+    margin-left: 45px;
+    font-size: 20px;
+}
+
+.info-section {
+    text-align: left;
+    font-size: 20px;
+}
+
+.info-line {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-line strong {
+    flex: 0 0 150px; 
+    margin-right: 30px;
+}
+
+.info-line span {
+    flex: 1;
+    position: relative;
+}
+
+.info-line span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+.News {
+    text-align: center;
+}
+
+.news_content {
+    background-color:rgb(157, 157, 157);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+    font-size: 19px;
+}
+
+.image2_setting {
+    max-width: 55%;
+}
+
+.image-and-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+.image2 {
+    margin-right: 0px;
+    padding-left: 60px;
+}
+
+.content {
+    flex: 1;
+    padding-right: 80px;
+}
+
+.news_content {
+    background-color: rgb(157, 157, 157);
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 40px;
+}
+
+/* About Webpage */
+/*
+.about_center {
+    padding-right: 100px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%;
+}
+*/
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 65%;
+}
+
+.about-image img {
+    max-width: 30%;
+}
