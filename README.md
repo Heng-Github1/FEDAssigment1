@@ -39,8 +39,6 @@ https://www.google.com/imgres?imgurl=https%3A%2F%2Fkpopping.com%2Fdocuments%2F3e
 
 https://allevents.in/mobile/amp-event.php?event_id=200024708205507
 
-https://kpopsingers.com/wave-to-earth-members-group-profile/
-
 https://kpopconcerts.com/k-pop-gallery/gallery-wave-to-earth-in-los-angeles/
 
 https://twitter.com/wave_to_earth/status/1700760448105169021
@@ -55,6 +53,8 @@ The photos used in this site were obtained from:
 https://www.deezer.com/en/artist/72302562
 
 https://www.koreanindie.com/2023/06/13/wave-to-earth-0-1-flaws-and-all/
+
+https://www.deezer.com/en/artist/72302562
 
 
 Acknowledgement:
