@@ -46,6 +46,10 @@ https://twitter.com/wave_to_earth/status/1700760448105169021
 https://popconth.com/2023/06/16/verylivewavetoearth-2/
 
 
+Acknowledgement:
+I received inspirations from: https://kohai.com/wave-to-earth/
+
+
 
 Music.html page:
 Media:
