@@ -6,15 +6,664 @@
         <link href="style.css" rel="stylesheet" type="text/css" />
         <title>Wave To Earth Official</title>
         <link rel="icon" href="WTE.Logo.jpg">
+        <style>
+        @media (max-width:1000px){
+            header{
+                padding: 20px 50px;
+            }
+        }
+        @media (max-width:700px){
+            header{
+                flex-direction: column;
+            }
+            header ul li a{
+                margin: 0 7px;
+            }
+        }
+        .box{
+            position: relative;
+            justify-content: center;
+            min-height: 100vh;
+            min-width: 100%;
+            color: #fff;
+            text-align: center;
+            overflow: hidden;
+        }
+        .box video{
+            position: absolute;
+            left: 0;
+            top: 0;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        .box video::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); 
+            z-index: 1;
+        }
+        .box .webTitle{
+            background-color: white;
+            color: black;
+            font-size: 5vw; 
+            font-weight: bold;
+            margin: 0 auto;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            z-index: 2;
+        }
+        section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 110px 100px;
+        }
+        @media (max-width: 1000px){
+            section{
+                padding: 100px 50px;
+            }
+        }
+        @media (max-width: 600px){
+            section{
+                padding: 125px 30px;
+            }
+        }
+        @media (max-width: 800px){
+            .box{
+                min-height: 600px;
+            }
+            .box h1{
+                font-size: 32px;
+            }
+        }
+        /*
+        .parallax {
+            position: relative;
+            min-height: 750px;
+            width: 100%;
+            height: 100vh;
+            background:rgba(0, 0, 0, 0.5)url("WTE_member Image.png");
+            background-size: cover;
+            background-blend-mode: darken;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .parallax::before {
+            position: relative;
+            width: 100%;
+            height: 105vh;
+        }*/
+        .container{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 100px 50px;
+            padding: 100px 50px;
+        }
+        .container .card{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 350px;
+            height: 300px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+            transition: 0.5s;
+        }
+        .container .card:hover{
+            height: 450px;
+        }
+        .container .card .imgBx{
+            position: absolute;
+            top: 20px;
+            width: 300px;
+            height: 220px;
+            background: #333;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        .container .card:hover .imgBx{
+            top: -100px;
+            scale: 0.75;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.2);
+        }
+        .container .card .imgBx img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 115%;
+            object-fit: cover;
+        }
+        .container .card .content{
+            position: absolute;
+            top: 252px;
+            width: 100%;
+            padding: 0 30px;
+            height: 35px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.5s;
+        }
+        .container .card:hover .content{
+            top: 130px;
+            height: 400px;
+        }
+        .container .card .content h2{
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--clr);
+            text-align: center;
+        }
+        .container .card .content p{
+            color: #333;
+        }
+        .container .card .content ul{
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-left: 50px;
+        }
+        .band{
+            max-width: 100%;
+            margin-right: 20px;
+        }
+        .overviewContent{
+            font-family: 'Poppins';
+            width: 100%;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+        .row{
+            width: 80%;
+            max-width: 1170px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 50px;
+            overflow-x: hidden;
+            padding: 5rem 0;
+        }
+        .row .imgWrapper{
+            overflow: hidden;
+        }
+        .row .imgWrapper img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .row .imgWrapper:hover img{
+            transform: scale(1.25);
+        }
+        .row .contentWrapper{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 30px;
+        }
+        .row .contentWrapper span.textWrapper{
+            display: block;
+            font-size: 20px;
+            color: #fff;
+            text-transform: capitalize;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .row .contentWrapper span.textWrapper span{
+            display: inline-block;
+            background: #fff;
+            width: 70px;
+            height: 5px;
+        }
+        .row .contentWrapper h2{
+            font-size: 40px;
+            font-weight: 700;
+            color: #fff;
+            padding-bottom: 20px;
+        }
+        .row .contentWrapper p{
+            font-size: 14px;
+            line-height: 25px;
+            padding-bottom: 25px;
+            color: #fff
+        }
+        @media (max-width: 991px){
+            .row{
+                grid-template-columns: 1fr;
+                grid-gap: 50px;
+            }
+            .row .contentWrapper{
+                padding-left: 0;
+            }
+        }
+        @media (max-width: 768px){
+            .row{
+                width: 90%;
+            }
+            .row .contentWrapper h2{
+                font-size: 30px;
+                padding-bottom: 20px;
+            }
+            .row .contentWrapper p{
+                line-height: 24px;
+            }
+        }
+        @media (max-width: 575px){
+            .row .contentWrapper span.textWrapper{
+                font-size: 18px;
+            }
+            .row .contentWrapper h2{
+                font-size: 25px;
+            }
+            .row .contentWrapper p{
+                font-size: 15px;
+                line-height: 22px;
+            }
+            .row .contentWrapper a{
+                font-size: 15px;
+                padding: 10px 20px;
+                border-radius: 8px;
+            }
+        }
+        .summariseVers{
+            margin-bottom: 20px;
+            font-family: 'Poppins';
+            text-align: center;
+        }
+        .tableContent{
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 800px;
+            height: 200px;
+            border: 1px solid #bdc3c7;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+        }
+        .summariseVers .tableContent tr{
+            transition: all .2s ease-in;
+            cursor: pointer;
+            color: #fff;
+        }
+        .summariseVers .tableContent #header th,td{
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .summariseVers .tableContent #header{
+            background-color: #49494f;
+            color: #fff;
+        }
+        .summariseVers h1{
+            font-weight: 600;
+            text-align: center;
+            background-color: #49494f;
+            color: #fff;
+            padding: 10px 0px;
+        }
+        .summariseVers .tableContent tr:hover{
+            background-color: #f5f5f5;
+            color: #000;
+            transform: scale(1.02);
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+        }
+        @media only screen and (max-width: 768px){
+            .tableContent{
+                width: 90%;
+            }
+        }
+        .bio{
+            color:#fff;
+            font-size: 40px;
+            font-family: 'Poppins';
+            text-transform: uppercase;
+        }
+        .tourSection{
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        .tourSlider{
+            width: 1300px;
+            max-width: 100vw;
+            height: 700px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .tourList{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: flex;
+            width: max-content;
+            transition: 1s;
+        }
+        .tourList img{
+            width: 1300px;
+            max-width: 100vw;
+            height: 100%;
+            object-fit: cover;
+        }
+        .tourButtons{
+            position: absolute;
+            top: 45%;
+            left: 5%;
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .tourButtons button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff5;
+            color: #fff;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+        }
+        .tourDots{
+            position: absolute;
+            bottom: 10px;
+            color: #fff;
+            left: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .tourDots li{
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 20px;
+            transition: 1s;
+        }
+        .tourDots li.active{
+            width: 30px;
+        }
+        @media screen and (max-width: 768px){
+            .tourSlider{
+                height: 400px;
+            }
+        }
+        </style>
     </head>
     <body>
-        <h3 id="Navigation_bar">
-            <a href="Overview.html">Overview</a>
-            <a href="About.html">About</a>
-            <a href="Music.html">Music</a>
-            <a href="Social.html">Social</a>
-            <a href="Merch.html">Merch</a>    
-        </h3>
+        <body>
+            <header>
+                <a href="#" class="logo">WaveToEarth</a>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="Music.html">Music</a></li>
+                    <li><a href="Social.html">Social</a></li>
+                    <li><a href="Merch.html">Merch</a></li>
+                </ul>
+            </header>
+    
+            <section class="box">
+                <video src="Wave to Earth - Light (Live Performed at ‘Deep Dive in Seoul-Busan Tour’).mp4" autoplay muted loop></video>
+                <h1 class="webTitle">Wave To Earth</h1>
+            </section>
+            
+        </body>
+        <div class="overviewContent">
+                <div class="row">
+                    <div class="imgWrapper">
+                        <img src="WTE Band Photo1.jpg" alt="Wave to Earth Concert Photo">
+                    </div>
+                    <div class="contentWrapper">
+                        <div class="content1">
+                            <span class="textWrapper">
+                                <span></span>Overview
+                            </span>
+                            <h2>Who Are They?</h2>
+                            <p>Wave to Earth (웨이브투어스) is a South Korean indie-rock trio affiliated with the 'WAVY' label, a Korean Hip-Hop/R&B 
+                                establishment founded by Colde. Comprising vocalist and guitarist Kim Daniel, drummer Shin Donggyu, 
+                                and bassist Cha Soonjong, the band marked their debut on August 23, 2019, with their inaugural single 'wave,' 
+                                subsequently followed by the EPs 'wave 0.01' and 'summer flows 0.02.' While officially a trio, additional 
+                                session members such as Jo Jung-geun (keyboard), Jeon-min (saxophone) and Hong Seung-gi, an artwork member 
+                                that contributes to the band's dynamic. Transitioning to the 'Wavy Seoul' label, they continued to make an 
+                                impact with singles like 'nouvelle vague' and 'calla.'</p>
+    
+                            <p>Wave to Earth' crafts indie pop with a lo-fi essence rooted in jazz drumming, concocting a distinct 
+                                ambiance that captures the essence of seasons and a dreamy atmosphere. Embracing the motto "All Self-made," 
+                                the band takes charge of every aspect, from recording, mixing, and mastering to overseeing the broader 
+                                artistic landscape, encompassing album art, videos, and fashion. The band's moniker, 'Wave to Earth,' 
+                                reflects their aspiration to "become the new wave" and extend their unique universe globally.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="summariseVers">
+                <h1>WaveToEarth's Profile</h1>
+            
+                <table class="tableContent">
+                    <tr id="header">
+                        <th>Label</th>
+                        <th>Info</th>
+                    </tr>
+                    <tr>
+                        <td>Debut</td>
+                        <td>August 23, 2019</td>
+                    </tr>
+                    <tr>
+                        <td>Active Years</td>
+                        <td>2019 - Present</td>
+                    </tr>
+                    <tr>
+                        <td>Members</td>
+                        <td>Kim Daniel, Shin Donggyu, Cha Soonjong</td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td>Korean Rock/Alernative Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Label</td>
+                        <td>Wavy</td>
+                    </tr>
+                    <tr>
+                        <td>Fandom Name</td>
+                        <td>Plankton</td>
+                    </tr>
+                    <tr>
+                        <td>Type</td>
+                        <td>KPop Boy Group</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <body>
+            <br><br><br>
+            <div class="bio">Biography</div>
+                <div class="container">
+                    <div class="card" style="--clr:#ff3e7f;">
+                        <div class="imgBx">
+                            <img src="Shin-Donggyu-jpg.webp">
+                        </div>
+                        <div class="content">
+                            <h2>Shin Donggyu</h2>
+                            <p>
+                                <ul>
+                                    <li>Stage Name: Dong Q</li>
+                                    <li>Birth Name: Shin Donggyu</li>
+                                    <li>Position: Drummer</li>
+                                    <li>Birthday: January 23, 1998</li>
+                                    <li>Age: 25 years old</li>
+                                    <li>Nationality: Korean</li>
+                                    <li>Height: 5'6" (170 cm)</li>
+                                    <li>Weight: 117 lbs (53 kg)</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card" style="--clr:#101034;">
+                        <div class="imgBx">
+                            <img src="Daniel-kim.jpg">
+                        </div>
+                        <div class="content">
+                            <h2>Kim Daniel</h2>
+                            <p>
+                                <ul>
+                                    <li>Stage Name: Daniel Kim</li>
+                                    <li>Birth Name: Kim Daniel</li>
+                                    <li>Position: Guitarist, Vocalist, SongWriter</li>
+                                    <li>Birthday: March 18, 1997</li>
+                                    <li>Age: 26 years old</li>
+                                    <li>Nationality: Korean</li>
+                                    <li>Height: 5'7" (175 cm)</li>
+                                    <li>Weight: 162 lbs (74 kg)</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card" style="--clr:#009688;">
+                        <div class="imgBx">
+                            <img src="John-Cha-jpg.webp">
+                        </div>
+                        <div class="content">
+                            <h2>Cha Soonjong</h2>
+                            <p>
+                                <ul>
+                                    <li>Stage Name: John Cha</li>
+                                    <li>Birth Name: Cha Soonjong</li>
+                                    <li>Position: Bassist</li>
+                                    <li>Birthday: August 13, 1997</li>
+                                    <li>Age: 26 years old</li>
+                                    <li>Nationality: Korean</li>
+                                    <li>Height: 5'6" (170 cm)</li>
+                                    <li>Weight: 113 lbs (51 kg)</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </body>
+        <br>
+        <h1 style="color: #fff;">Tours</h1>
+        <body class="tourSection">
+                <div class="tourSlider">
+                    <div class="tourList">
+                        <div class="tourItem">
+                            <img src="WTE Tour Img.webp">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img1.webp">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img2.jpeg">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img3.jpg">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img4.jpg">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img5.jpg">
+                        </div>
+                        <div class="tourItem">
+                            <img src="WTE Tour Img6.jpg">
+                        </div>
+                    </div>
+                    <!-- button prev and next -->
+                    <div class="tourButtons">
+                        <button id="tourPrev">&lt;</button>
+                        <button id="tourNext">&gt;</button>
+                    </div>
+                    <!-- dots (if 7 items => 7 dot) -->
+                    <ul class="tourDots">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <br><br><br>
+                
+            <script>
+                window.addEventListener("scroll", function(){
+                var header = document.querySelector("header");
+                header.classList.toggle("sticky", window.scrollY > 0);
+                });
 
+                let tourList = document.querySelector('.tourSlider .tourList');
+                let tourItems = document.querySelectorAll('.tourSlider .tourList .tourItem');
+                let tourDots = document.querySelectorAll('.tourSlider .tourDots li');
+                let tourPrev = document.getElementById('tourPrev');
+                let tourNext = document.getElementById('tourNext');
+            
+                let active = 0;
+                let lengthItems = tourItems.length - 1;
+            
+                tourNext.onclick = function () {
+                    if (active + 1 > lengthItems) {
+                        active = 0;
+                    } else {
+                        active = active + 1;
+                    }
+                    reloadSlider();
+                }
+                tourPrev.onclick = function () {
+                    if (active - 1 < 0) {
+                        active = lengthItems;
+                    } else {
+                        active = active - 1;
+                    }
+                    reloadSlider();
+                }
+                let refreshSlider = setInterval(() => { tourNext.click() }, 5000);
+                function reloadSlider() {
+                    let checkLeft = tourItems[active].offsetLeft;
+                    tourList.style.left = -checkLeft + 'px';
+            
+                    let lastActiveDot = document.querySelector('.tourSlider .tourDots li.active');
+                    lastActiveDot.classList.remove('active');
+                    tourDots[active].classList.add('active');
+                    clearInterval(refreshSlider);
+                    refreshSlider = setInterval(() => { tourNext.click() }, 5000);
+                }
+                tourDots.forEach((li, key) => {
+                    li.addEventListener('click', function () {
+                        active = key;
+                        reloadSlider();
+                    })
+                })
+            </script>
     </body>
 </html>

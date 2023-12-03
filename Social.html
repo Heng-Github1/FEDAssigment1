@@ -3,20 +3,412 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <script src="https://kit.fontawesome.com/b356ad9dc8.js" crossorigin="anonymous"></script>
         <link href="style.css" rel="stylesheet" type="text/css" />
         <title>Wave To Earth Official</title>
         <link rel="icon" href="WTE.Logo.jpg">
     </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: none;
+            transition: all 0.2s linear;
+            font-family: 'Poppins', sans-serif;
+        }
+        @media (max-width:1000px){
+            header{
+                padding: 20px 50px;
+            }
+        }
+        @media (max-width:700px){
+            header{
+                flex-direction: column;
+            }
+            header ul li a{
+                margin: 0 7px;
+            }
+        }
+        .band-card{
+            width: 600px !important;
+            height: 750px !important;
+            margin: 20px !important;
+        }
+        .topImage{
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background:rgba(0, 0, 0, 0.5)url("WTE_member Image.png");
+            background-size: cover;
+            background-blend-mode: darken;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .topImage .webTitle{
+            background-color: white;
+            color: black;
+            font-size: 5vw; 
+            font-weight: bold;
+            margin: 0 auto;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            z-index: 2;
+        }
+        h1{
+            font-size: 40px;
+            margin-top: 20px;
+            color: #fff;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card{
+            height: 720px;
+            width: 290px;
+            margin: 20px;
+            box-shadow: 0 3px 5px #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .card .bg-image{
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            clip-path: polygon(0 0, 100% 0%, 100% 70%, 45% 100%, 0 70%);
+        }
+        .card .pic img{
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            border: 10px solid #222;
+            margin-top: -90px;
+            position: relative;
+        }
+        .card .info h3{
+            color: #f0f0f0;
+            font-size: 20px;
+            padding: 10px 0;
+        }
+        .card .info span{
+            font-size: 15px;
+            color: #d2dbff;
+        }
+        .card .info p{
+            font-size: 13px;
+            padding: 10px 20px;
+            color: #999;
+        }
+        .main a{
+            text-decoration: none;
+        }
+        .icon{
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background: #000000;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 25px;
+            line-height: 50px;
+            font-family: sans-serif;
+            overflow: hidden;
+            box-shadow: 5px 10px 20px rgba(150, 150, 150, .3);
+            transition: all .3s ease-out;
+        }
+        .icon:hover{
+            width: 200px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            color: #000000;
+        }
+        .icon:hover i{
+            color: #fff;
+        }
+        .icon .fa-instagram{
+            color: #d81a8c;
+        }
+        .insta:hover{
+            background: #d6249f;
+            background: radial-gradient(circle at 30% 107%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 50%,
+            #285aeb 90%
+            );
+        }
+        .icon .fa-facebook-f{
+            color: #1A6ED8;
+        }
+        .fb:hover{
+            background: #1A6ED8;
+        }
+        .icon .fa-twitter{
+            color: #1DA1F2;
+        }
+        .twt:hover{
+            background: #1DA1F2;
+        }
+        .icon .fa-youtube{
+            color: #FE0000;
+        }
+        .yt:hover{
+            background: #FE0000;
+        }
+        @media only screen and (min-width: 320px) and (max-width: 991px) {
+            .main{
+                flex-direction: column;
+            }
+        }
+        .form{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form label{
+            display: block;
+            margin-bottom: 0;
+        }
+        form{
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            padding: 2vw 4vw;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        form h3{
+            color: #555;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        form input, form textarea{
+            border: 0;
+            margin: 10px 0;
+            padding: 20px;
+            outline: none;
+            background: #dadada;
+            font-size: 16px;
+        }
+        form button{
+            padding: 15px;
+            background: rgb(27, 228, 101);
+            color: #fff;
+            font-size: 18px;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+            width: 150px;
+            margin: 20px auto 0;
+            border-radius: 30px;
+        }
+    </style>
     <body>
-        <h3 id="Navigation_bar">
-            <a href="Overview.html">Overview</a>
-            <a href="About.html">About</a>
-            <a href="Music.html">Music</a>
-            <a href="Social.html">Social</a>
-            <a href="Merch.html">Merch</a>    
-        </h3>
-        <br><br><br><br>
-        <h1>IN DEVELOPMENT</h1>
-        
+        <header class="nav">
+            <a href="#" class="logo">WaveToEarth</a>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="Music.html">Music</a></li>
+                <li><a href="Social.html">Social</a></li>
+                <li><a href="Merch.html">Merch</a></li>
+            </ul>
+        </header>
+
+        <div class="topImage">
+            <h1 class="webTitle">WaveToEarth</h1>
+        </div>
+
+        <h1>Band</h1>
+        <section class="container">
+            <div class="card band-card">
+                <div class="bg-image">
+                    <img src="WTE Tour Img3.jpg" alt="Band background image">
+                </div>
+                <div class="pic">
+                    <img src="WTE.Logo.jpg" alt="Band profile image">
+                </div>
+                <div class="info">
+                    <h3>WaveToEarth</h3>
+                    <span> <i class="fas fa-code"></i> Musician/Band </span>
+                    <p>Despite being a Korean band, Wave To Earth predominantly writes their songs in 
+                    English. The group initially debuted in August 2019 with two members, Shin 
+                    Donggyu and Daniel, releasing the single 'Wave.' In January 2020, they expanded 
+                    their lineup with the addition of Soonjong Cha and launched their first EP, 
+                    '[Wave 0.01].' The fandom name, "plankton," draws inspiration from the lyrics 
+                    of their song "surf," specifically the phrase "surf like plankton."</p>
+                    <div class="main">
+                        <!-- Facebook Icon -->
+                        <a href="https://www.facebook.com/wavetoearth/" target="_blank">
+                            <div class="icon fb">
+                                <i class="fa-brands fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </div>
+                        </a>
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/wave_to_earth/" target="_blank">
+                            <div class="icon insta">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </div>		
+                        </a>
+                        <!-- Twitter Icon -->
+                        <a href="https://twitter.com/wave_to_earth" target="_blank">
+                            <div class="icon twt">
+                                <i class="fa-brands fa-twitter"></i>
+                                <span>Twitter</span>
+                            </div>
+                        </a>
+                        <!-- YouTube Icon -->
+                        <a href="https://www.youtube.com/@wavetoearth" target="_blank">
+                            <div class="icon yt">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>YouTube</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <h1>Members</h1>
+        <section class="container">
+            <div class="card">
+                <div class="bg-image">
+                    <img src="Donggyu-bg.jpeg" alt="Donggyu background image">
+                </div>
+                <div class="pic">
+                    <img src="Donggyu-prof.jpeg" alt="Donggyu profile image">
+                </div>
+                <div class="info">
+                    <h3>Shin Donggyu</h3>
+                    <span> <i class="fas fa-code"></i> Drummer </span>
+                    <p>Donggyu is a versatile musician with a flair for jazz, he is formerly part of the 
+                    jazz group called AIFF, in short for Afro Influenced Funk Federation. Beyond music, 
+                    he shares his life with a small black dog named Jelmi. Having been in a band with Kim 
+                    Daniel since their middle school days, Donggyu also showcases his drumming skills in 
+                    the band 'Ant Is Fourmi in French' and is proficient in playing the piano.</p>
+                    <div class="main">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/dongkiii_/" target="_blank">
+                            <div class="icon insta">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </div>
+                        </a>	
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="bg-image">
+                    <img src="Daniel-bg.jpeg" alt="Daniel background image">
+                </div>
+                <div class="pic">
+                    <img src="Daniel-prof.jpeg" alt="Daniel profile image">
+                </div>
+                <div class="info">
+                    <h3>Kim Daniel</h3>
+                    <span> <i class="fas fa-code"></i> Singer/Songwriter </span>
+                    <p>A multifaceted artist, Daniel Kim excels in writing lyrics, composing music, and 
+                    arranging songs for Wave To Earth. Beyond his musical talents, he takes on the 
+                    role of coordinating outfits for all the band members during concerts. Daniel Kim's 
+                    songwriting is distinctive—he begins by choosing the title, then seamlessly weaves 
+                    together the lyrics and melody, much like crafting a novel. As the creative force 
+                    behind Wave To Earth, he writes and composes all of the band's songs.</p>
+                    <div class="main">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/niellkim_/" target="_blank">
+                            <div class="icon insta">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </div>		
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="bg-image">
+                    <img src="SoonJong-bg.jpeg" alt="SoonJong background image">
+                </div>
+                <div class="pic">
+                    <img src="SoonJong-prof.jpeg" alt="SoonJung profile image">
+                </div>
+                <div class="info">
+                    <h3>Cha SoonJong</h3>
+                    <span> <i class="fas fa-code"></i> Bassist </span>
+                    <p>Holder of a degree in Applied Music and Bass from the Seoul Institute of the 
+                    Arts, SoonJong Cha brings a wealth of musical knowledge to Wave To Earth. 
+                    Fluent in English, he boasts the best language skills among the band members, 
+                    thanks to attending an American missionary school. SoonJong's expertise 
+                    extends to mastering music, a role he has taken on from Daniel Kim within the 
+                    band.</p>
+                    <div class="main">
+                        <!-- Instagram Icon -->
+                        <a href="https://www.instagram.com/johnchamusic/" target="_blank">
+                            <div class="icon insta">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </div>
+                        </a>		
+                        <!-- YouTube Icon -->
+                        <a href="https://www.youtube.com/c/JohnCha" target="_blank">
+                            <div class="icon yt">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>YouTube</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <br><br><br>
+
+        <div class="form">
+            <form>
+                <h3>Contact Us</h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" placeholder="Enter your Email Address" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" placeholder="Enter your Phone No." required>
+                
+                <label for="message">Feedback:</label>
+                <textarea id="message" rows="4" placeholder="Any Feedbacks?"></textarea>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+        <script>
+            window.addEventListener("scroll", function(){
+            var header = document.querySelector(".nav");
+            header.classList.toggle("sticky", window.scrollY > 0);
+            });
+        </script>
     </body>
 </html>

@@ -3,19 +3,266 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link rel="stylesheet" href="addtocart.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
         <link href="style.css" rel="stylesheet" type="text/css" />
         <title>Wave To Earth Official</title>
         <link rel="icon" href="WTE.Logo.jpg">
     </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-transform: none;
+            transition: all 0.2s linear;
+            font-family: 'Poppins', sans-serif;
+        }
+		.body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+            color: #fff;
+		}
+        @media (max-width:1000px){
+            header{
+                padding: 20px 50px;
+            }
+        }
+        @media (max-width:700px){
+            header{
+                flex-direction: column;
+            }
+            header ul li a{
+                margin: 0 7px;
+            }
+        }
+        .band-card{
+            width: 600px !important;
+            height: 750px !important;
+            margin: 20px !important;
+        }
+        .topImage{
+            height: 100vh;
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            background:rgba(0, 0, 0, 0.5)url("WTE_member Image2.jpg");
+            background-size: cover;
+            background-blend-mode: darken;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .topImage .webTitle{
+            background-color: white;
+            color: black;
+            font-size: 5vw; 
+            font-weight: bold;
+            margin: 0 auto;
+            padding: 10px;
+            width: 50%;
+            text-align: center;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            z-index: 2;
+        }
+        .header{
+			height: 80px;
+			width: 70%;
+			background-color: rgb(42, 110, 213);
+			border-radius: 3px;
+			margin: 30px 0px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 15px;
+		}
+		.header .logo{
+			font-size: 30px;
+			font-weight: bold;
+			color: white;
+		}
+		.cart{
+			display: flex;
+			background-color: white;
+			justify-content: space-between;
+			align-items: center;
+			padding: 7px 10px;
+			border-radius: 3px;
+			width: 80px;
+		}
+		.fa-solid{
+			color: rgb(42, 110, 213);
+		}
+		.cart p{
+			height: 22px;
+			width: 22px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 22px;
+			background-color: rgb(42, 110, 213);
+			color: white;
+		}
+		.container{
+			display: flex;
+			width: 70%;
+			margin-bottom: 30px;
+		}
+		#root{
+			width: 60%;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 20px;
+		}
+		.sidebar{
+			width: 40%;
+			border-radius: 5px;
+			background-color: #8f8f8f;
+			margin-left: 20px;
+			padding: 15px;
+			text-align: center;
+		}
+		.head{
+			background-color: rgb(42, 110, 213);
+			border-radius: 3px;
+			height: 40px;
+			padding: 10px;
+			margin-bottom: 20px;
+			color: white;
+			display: flex;
+			align-items: center;
+		}
+		.foot{
+			display: flex;
+			justify-content: space-between;
+			margin: 20px 0px;
+			padding: 10px 0px;
+			border-top: 1px solid #333;
+		}
+		.box{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			border: 1px solid rgb(42, 110, 213);
+			border-radius: 5px;
+			padding: 15px;
+		}
+		.img-box{
+			width: 100%;
+			height: 180px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.images{
+			max-width: 90%;
+			max-height: 90%;
+			object-fit: cover;
+			object-position: center;
+		}
+		.bottom{
+			margin-top: 20px;
+			width: 100%;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			height: 110px;
+		}
+		h2{
+			font-size: 20px;
+			color: red;
+		}
+		button{
+			width: 100%;
+			position: relative;
+			border: none;
+			border-radius: 5px;
+			background-color: rgb(42, 110, 213);
+			padding: 7px 25px;
+			cursor: pointer;
+			color: white;
+		}
+		button:hover{
+			background-color: #333;
+		}
+		.cart-item{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+			background-color: rgb(132, 132, 132);
+			border-bottom: 1px solid #aaa;
+			border-radius: 3px;
+			margin: 10px 10px;
+		}
+		.row-img{
+		    width: 50px;
+			height: 50px;
+			border-radius: 50px;
+			border: 1px solid rgb(42, 110, 213);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.rowimg{
+			max-width: 43px;
+			max-height: 43px;
+			border-radius: 50%;
+		}
+		.fa-trash:hover{
+			cursor: pointer;
+			color: #333;
+		}
+    </style>
     <body>
-        <h3 id="Navigation_bar">
-            <a href="Overview.html">Overview</a>
-            <a href="About.html">About</a>
-            <a href="Music.html">Music</a>
-            <a href="Social.html">Social</a>
-            <a href="Merch.html">Merch</a>    
-        </h3>
+        <header class="nav">
+            <a href="#" class="logo">WaveToEarth</a>
+            <ul>
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="Music.html">Music</a></li>
+                <li><a href="Social.html">Social</a></li>
+                <li><a href="Merch.html">Merch</a></li>
+            </ul>
+        </header>
+
+        <div class="topImage">
+            <h1 class="webTitle">WaveToEarth</h1>
+        </div>
+
         <br><br><br><br>
-        <h1>IN DEVELOPMENT</h1>
+        <body class="body">
+            <div class="header">
+                <p class="logo">WaveToEarth Merch Store</p>
+                <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+            </div>
+            <div class="container">
+                <div id="root"></div>
+                <div class="sidebar">
+                    <div class="head"><p>My Cart</p></div>
+                    <div id="cartItem">Your cart is empty</div>
+                    <div class="foot">
+                        <h3>Total</h3>
+                        <h2 id="total">$ 0.00</h2>
+                    </div>
+                </div>
+            </div>
+            <script src="addtocart.js"></script>
+        </body>
+
+        <script>
+            window.addEventListener("scroll", function(){
+            var header = document.querySelector(".nav");
+            header.classList.toggle("sticky", window.scrollY > 0);
+            });
+        </script>
     </body>
 </html>
